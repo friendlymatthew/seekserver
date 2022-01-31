@@ -4,13 +4,15 @@ const Clip = require("../../models/Clip");
 const { check, validationResult } = require("express-validator");
 
 router.post("/post", [
-    check("videoSrc").notEmpty().isURL(),
+    check("videoSrc").notEmpty().isString(),
     check("market").notEmpty().isString(),
     check("station").notEmpty().isString(),
     check("title").notEmpty().isString(),
     check("snippet").notEmpty().isString(),
     check("coder").notEmpty().isString(),
     check("seek").notEmpty().isString(),
+    check("start").notEmpty().isNumeric(),
+    check("stop").notEmpty().isNumeric(),
 ], async(req, res) => {
     const schemaValidationErrors = validationResult(req);
     console.log(":::SchemaValidation:::", schemaValidationErrors);
