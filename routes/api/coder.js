@@ -11,8 +11,6 @@ router.post("/post", [
     check("snippet").notEmpty().isString(),
     check("coder").notEmpty().isString(),
     check("seek").notEmpty().isString(),
-    check("start").notEmpty().isNumeric(),
-    check("stop").notEmpty().isNumeric(),
 ], async(req, res) => {
     const schemaValidationErrors = validationResult(req);
     console.log(":::SchemaValidation:::", schemaValidationErrors);
