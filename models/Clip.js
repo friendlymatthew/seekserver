@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const ClipSchema = new Schema({ 
     videoSrc: String,
+    id: Number,
     market: String,
     station: String,
     title: String,
