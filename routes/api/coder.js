@@ -5,6 +5,7 @@ const { check, validationResult } = require("express-validator");
 
 router.post("/post",[
     check("videoSrc").notEmpty().isString(),
+    check("station").notEmpty().isString(),
     check("market").notEmpty().isString(),
     check("title").notEmpty().isString(),
     check("snippet").notEmpty().isString(),
@@ -23,7 +24,6 @@ router.post("/post",[
             message: "The inputs you entered to register are invalid."
         })
     }
-
 
     Clip.findOne({_id: req.body._id}).then(clip => {
         if(clip) {
